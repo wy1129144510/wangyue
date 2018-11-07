@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.iotek.entity.Address" table="t_address">
+		<id name="addrId" type="java.lang.Integer">
+			<column name="id"></column>
+			<!-- 指定数据库依靠底层方式(数据库自增) -->
+			<generator class="native"></generator>
+		</id>
+		<property name="city" type="java.lang.String">
+			<column name="city" ></column>
+		</property>
+		<property name="street" type="java.lang.String">
+			<column name="street" ></column>
+		</property>
+		<property name="postCode" type="java.lang.String">
+			<column name="post_code" ></column>
+		</property>
+		<one-to-one name = "user" class="com.iotek.entity.User" property-ref="addr"></one-to-one>
+	</class>
+</hibernate-mapping>
